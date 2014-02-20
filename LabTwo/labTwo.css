@@ -1,0 +1,68 @@
+@font-face 
+{ 
+ font-family: CaviarDreams; 
+ src: url('CaviarDreams.ttf') format('truetype'); 
+}
+
+@font-face 
+{ 
+ font-family: TimeBurner; 
+ src: url('timeburner_regular.ttf') format('truetype'); 
+}
+
+ul li {display: block; text-align: center; float: left; width: 100px;}
+li { list-style: none; display: inline; font-family: TimeBurner; font-size: 30px; }
+
+#weather-widget
+{
+ width: 900px;
+ border: 1px solid skyblue;
+ border-radius: 20px;
+ height: 250px;
+ margin: 40px auto 0 auto;
+ background: white;
+ -webkit-animation: fadein 6s; 
+ -moz-animation: fadein 10s;
+ -ms-animation: fadein 10s; 
+ -o-animation: fadein 10s;
+ animation: fadein 10s;
+			
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+#weather
+{
+ margin: 20px 0 0 0;
+ text-align: center; 
+ font-family: TimeBurner;
+ font-size: 50px;
+}
+
+body{ background-image:url('http://3.bp.blogspot.com/-7vezwAZabUg/UEkCI5XJLlI/AAAAAAAAAwQ/b3kN3Xa13MI/s1600/cloudbg.jpg'); }

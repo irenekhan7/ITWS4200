@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lab Two Weather Widget</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<meta charset = "utf-8">
+	<meta name = "description" content = "">
+	<link rel="stylesheet" type="text/css" href="labTwo.css">
+ </head>
+  <body>
+  <div id = "weather-widget">
+  <div id = "weather"></div>
+  <ul id = "days"><li>SAT</li><li>SUN</li><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li></ul>
+  <ul id = "maxTemp"></ul>
+  <ul id = "minTemp"></ul>
+  </div>
+  
+	<script>	
+    function showPosition(position) 
+	{ 
+	 //Request parameter variables
+	 window.LAT = '';
+	 window.LONG = '';
+	 var apiKey = '070c192ecc8183d12ea5b88a3a1d18b2';
+	 var url = 'https://api.forecast.io/forecast/';
+	 var data;
+	 LAT = position.coords.latitude;
+	 LONG = position.coords.longitude;
+	 
+	 //Make request
+	 $.getJSON(url + apiKey + "/" + LAT + "," + LONG + "?callback=?", 
+	 //Log returned data
+	 //Add current temp, high weekly temps, and low weekly temps to widget
+	 function(data)
+	 {
+	  console.log(data);
+	  $("#weather").html('At your location : ' + Math.floor(data.currently.temperature) + '&deg;');
+	  var a;
+	  for(a = 0; a < 8; a++)
+	  {
+	   $("#maxTemp").append('<li>' + Math.floor(data.daily.data[a].temperatureMax) + '&deg;</li>');
+	   $("#minTemp").append('<li>' + Math.floor(data.daily.data[a].temperatureMin) + '&deg;</li>');
+	  }
+	 });
+	}
+  
+    //If geolocation is enabled, call showPosition
+	$(function() 
+	{ 
+	 if (navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(showPosition);
+	  else
+	  console.log("Geolocation is not supported by this browser.");
+	});
+		
+	</script>
+  </body>
+</html>
